@@ -1,35 +1,36 @@
 package com.hemebiotech.analytics;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class CountOccurrenceEachSymptomsImpl implements CountOccurrenceEachSymptoms {
-    private final List<String> fileContent;
+    private final List<String> symptomList;
 
     /**
-     * @param fileContent - ArrayList which contains all the symptoms from a data source
+     * @param symptomList - ArrayList which contains all the symptoms from a data source
      */
 
-    public CountOccurrenceEachSymptomsImpl(List<String> fileContent) {
-        this.fileContent = fileContent;
+    public CountOccurrenceEachSymptomsImpl(List<String> symptomList) {
+        this.symptomList = symptomList;
     }
 
     /**
-     * Function .....
+     * Function that lists each disease and counts their occurrence
      *
-     * @return Map containing each disease and its occurrence from a data source
+     * @return Map containing each disease and its occurrence
      */
 
-    //Fonction qui liste chaque maladie et compte leur occurrence (ranger dans l'ordre donné)
     @Override
     public Map<String, Integer> getDiseasesCountFile() {
 
         Map<String, Integer> diseasesCountFile = new TreeMap<>();
 
-        for (String s : fileContent) {
-            diseasesCountFile.putIfAbsent(s, 0); //Ajout du symptôme et init à 0 si non présent dans le fichier de comptage
-            int occurrence = diseasesCountFile.get(s); //Récupération du nb d'occurrence du symptôme
+        for (String s : symptomList) {
+            diseasesCountFile.putIfAbsent(s, 0); //Added symptom and init to 0 if not present in count file
+            int occurrence = diseasesCountFile.get(s); //Retrieval of the number of occurrence of the symptom
             occurrence++;
-            diseasesCountFile.put(s, occurrence); //MAJ du nb d'occurrence dans le fichier de comptage
+            diseasesCountFile.put(s, occurrence); //Update of the number of occurrences in the counting file
         }
 
         return diseasesCountFile;

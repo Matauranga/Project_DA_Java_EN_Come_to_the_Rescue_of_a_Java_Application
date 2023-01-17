@@ -1,24 +1,27 @@
 package com.hemebiotech.analytics;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Simple brute force implementation
  */
-public class ReadSymptomDataFromFile implements ISymptomReader {
+public class ReadSymptomDataFromFile implements SymptomReader {
 
     private final String filepath;
 
     /**
-     * @param filepath a full or partial path to file with symptom strings in it, one per line
+     * @param symptomFilePath a full or partial path to file with symptom strings in it, one per line
      */
-    public ReadSymptomDataFromFile(String filepath) {
-        if(filepath == null || filepath.trim().equals("")){
-            throw new  IllegalArgumentException("Filepath cannot be null or empty");
+    public ReadSymptomDataFromFile(String symptomFilePath) {
+        if (symptomFilePath == null || symptomFilePath.trim().equals("")) {
+            throw new IllegalArgumentException("Filepath cannot be null or empty");
         }
 
-        this.filepath = filepath;
+        this.filepath = symptomFilePath;
     }
 
     /**
@@ -39,8 +42,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
                 }
                 reader.close();
             } catch (IOException e) {
-                System.out.println("File not found\n");
-                e.printStackTrace();
+                System.err.println("File not found\n");
             }
         }
 
