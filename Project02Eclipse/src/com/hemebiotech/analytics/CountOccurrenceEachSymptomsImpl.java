@@ -10,15 +10,12 @@ public class CountOccurrenceEachSymptomsImpl implements CountOccurrenceEachSympt
     /**
      * @param symptomList - ArrayList which contains all the symptoms from a data source
      */
-
     public CountOccurrenceEachSymptomsImpl(List<String> symptomList) {
         this.symptomList = symptomList;
     }
 
     /**
-     * Function that lists each disease and counts their occurrence
-     *
-     * @return Map containing each disease and its occurrence
+     * @inheritDoc
      */
 
     @Override

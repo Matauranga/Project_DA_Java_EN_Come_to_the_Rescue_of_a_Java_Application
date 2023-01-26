@@ -13,7 +13,6 @@ public class SymptomsAnalytics {
     public static String symptomFilePath = "./Project02Eclipse/symptoms.txt";
     public static String resultFilePath = "./Project02Eclipse/result.out";
 
-
     public static void analytics() throws Exception {
 
         SymptomReader readData = new ReadSymptomDataFromFile(symptomFilePath);

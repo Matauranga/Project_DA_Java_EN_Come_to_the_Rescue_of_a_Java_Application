@@ -11,7 +11,10 @@ import java.util.Map;
 public interface CountOccurrenceEachSymptoms {
 
     /**
-     * @return a map that list each disease and counts their occurrence
+     * Function that lists each disease, counts their occurrence and sort them alphabetically
+     *
+     * @return Map containing each disease and its occurrence in alphabetical order
      */
+
     Map<String, Integer> getDiseasesCountFile();
 }

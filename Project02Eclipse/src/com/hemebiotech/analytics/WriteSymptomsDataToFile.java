@@ -6,7 +6,6 @@ import java.util.Map;
 
 public class WriteSymptomsDataToFile implements SymptomWriter {
 
-
     private final String filePath;
 
     /**
@@ -16,7 +15,6 @@ public class WriteSymptomsDataToFile implements SymptomWriter {
         if (resultFilePath == null || resultFilePath.trim().equals("")) {
             throw new IllegalArgumentException("Filepath cannot be null or empty");
         }
-
         this.filePath = resultFilePath;
     }
 
@@ -25,17 +23,13 @@ public class WriteSymptomsDataToFile implements SymptomWriter {
      *
      * @param symptomMap Map containing each disease and its occurrence
      */
-
     @Override
     public void writeSymptoms(Map<String, Integer> symptomMap) {
-
         try {
             FileWriter writer = new FileWriter(this.filePath);
-
             for (Map.Entry<String, Integer> m : symptomMap.entrySet()) {
                 writer.write(m.getKey() + " : " + m.getValue() + "\n");
             }
-
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();

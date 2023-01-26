@@ -39,6 +39,7 @@ public class ReadSymptomDataFromFile implements SymptomReader {
                 while (line != null) {
                     result.add(line.trim());
                     line = reader.readLine();
+
                 }
                 reader.close();
             } catch (IOException e) {
